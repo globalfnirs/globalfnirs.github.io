@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇬🇲 Welcome - Learn Mandinka</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .landing-container {
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .main-card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            max-width: 700px;
+            width: 100%;
+            padding: 40px;
+            background: white;
+        }
+
+        .gambia-flag {
+            font-size: 4rem;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #000000 0%, #000000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            color: #555;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .qr-card {
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            background: white;
+            margin-bottom: 30px;
+        }
+
+        .qr-card-img {
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            height: auto;
+        }
+
+        .qr-label {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #90ee90 0%, #98fb98 100%);
+            border: none;
+            border-radius: 15px;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(144, 238, 144, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(144, 238, 144, 0.6);
+        }
+
+        .footer-link {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .gambia-flag {
+                font-size: 3rem;
+            }
+
+            .main-card {
+                padding: 30px 20px;
+            }
+
+            .qr-card {
+                padding: 20px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .description {
+                font-size: 0.95rem;
+            }
+
+            .cta-button {
+                font-size: 1.1rem;
+                padding: 12px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <div class="card main-card">
+            <div class="card-body text-center">
+                <div class="gambia-flag mb-4">🇬🇲</div>
+                <h1 class="title">Welcome!</h1>
+                <p class="description">
+                    The Gambia is a country in West Africa with a population speaking many different languages.
+                    The most common language spoken across the nation is Mandinka. Join us in learning this beautiful language! Wear headphones to listen to the audio.
+                </p>
+
+                <div class="card qr-card">
+                    <div class="row align-items-center">
+                        <div class="col-6 col-md-4 order-2 order-md-1">
+                            <img src="assets/qr-code.jpg" alt="Mandinka Learning QR Code" class="qr-card-img">
+                        </div>
+                        <div class="col-6 col-md-8 text-center order-1 order-md-2">
+                            <h3 class="fw-bold mb-2">Scan to Learn</h3>
+                            <p class="qr-label">Download or share this page to access Mandinka flashcards anytime!</p>
+                            <div class="d-flex justify-content-center mt-3">
+                                <button class="cta-button" onclick="window.location.href='learning.html'">
+                                    Start Learning →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-muted small mb-0">
+                        Learning resource based on <a href="https://mylittlewordland.com/">My Little World Land</a>
+                    </p>
+                    <p class="footer-link">
+                        Learn more about our research in The Gambia at <a href="https://globalfnirs.org" target="_blank">globalfnirs.org</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll and page transitions
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButton = document.querySelector('.cta-button');
+            ctaButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetUrl = 'learning.html';
+                window.location.href = targetUrl;
+            });
+        });
+    </script>
+</body>
+</html>
