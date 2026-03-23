@@ -1,197 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇬🇲 Welcome - Learn Mandinka</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        html, body {
-            height: 100%;
-            overflow-x: hidden;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇬🇲 Welcome – Learn Mandinka</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ══ EXACT SAME TOKENS AS learning.html ══ */
+    :root {
+      --red:    #CE1126;
+      --blue:   #0C1C8C;
+      --green:  #3A7728;
+      --green2: #2E6420;
+      --white:  #FFFFFF;
+      --cream:  #FBF6EC;
+      --bg:     #F0EDE4;
+      --ink:    #1a1a1a;
+      --muted:  #666;
+    }
 
-        .landing-container {
-            height: 100vh;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .main-card {
-            border: none;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            max-width: 700px;
-            width: 100%;
-            padding: 40px;
-            background: white;
-        }
+    html, body {
+      height: 100%;
+      font-family: 'Nunito', 'Segoe UI', sans-serif;
+      background: var(--bg);
+      overflow-x: hidden;
+    }
 
-        .gambia-flag {
-            font-size: 4rem;
-        }
+    /* ══ PAGE WRAPPER — same as learning.html ══ */
+    .page-wrap {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        .title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #000000 0%, #000000 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-        }
+    /* ══════════════════════════════════════════
+       AFRICAN DIAMOND BORDER STRIPS
+       Identical to learning.html
+    ══════════════════════════════════════════ */
+    .border-strip {
+      width: 100%;
+      height: 34px;
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='34'%3E%3Crect width='72' height='34' fill='%23CE1126'/%3E%3Cpolygon points='18,1 33,17 18,33 3,17' fill='%23FFFFFF'/%3E%3Cpolygon points='18,4 29,17 18,30 7,17' fill='%23CE1126'/%3E%3Cpolygon points='18,7 25,17 18,27 11,17' fill='%23FFFFFF'/%3E%3Cpolygon points='18,10 22,17 18,24 14,17' fill='%230C1C8C'/%3E%3Cpolygon points='18,13 20,17 18,21 16,17' fill='%23FFFFFF'/%3E%3Cpolygon points='18,15 19,17 18,19 17,17' fill='%233A7728'/%3E%3Cpolygon points='54,1 69,17 54,33 39,17' fill='%23FFFFFF'/%3E%3Cpolygon points='54,4 65,17 54,30 43,17' fill='%23CE1126'/%3E%3Cpolygon points='54,7 61,17 54,27 47,17' fill='%23FFFFFF'/%3E%3Cpolygon points='54,10 58,17 54,24 50,17' fill='%230C1C8C'/%3E%3Cpolygon points='54,13 56,17 54,21 52,17' fill='%23FFFFFF'/%3E%3Cpolygon points='54,15 55,17 54,19 53,17' fill='%233A7728'/%3E%3C/svg%3E");
+      background-size: 72px 34px;
+      background-repeat: repeat-x;
+    }
+    .border-strip.flip { transform: scaleY(-1); }
 
-        .description {
-            font-size: 1.2rem;
-            color: #555;
-            text-align: center;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
+    /* ══════════════════════════════════════════
+       GREEN BANNER — identical to learning.html
+    ══════════════════════════════════════════ */
+    .banner {
+      width: 100%;
+      background: linear-gradient(135deg, var(--green2) 0%, var(--green) 100%);
+      padding: 16px 20px 18px;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,.18);
+    }
+    .banner h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 4.5vw, 1.95rem);
+      font-weight: 800;
+      color: #fff;
+      text-shadow: 0 2px 6px rgba(0,0,0,.22);
+      line-height: 1.2;
+    }
+    .banner-sub {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      margin-top: 3px;
+    }
 
-        .qr-card {
-            border: none;
-            border-radius: 25px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            text-align: center;
-            background: white;
-            margin-bottom: 30px;
-        }
+    /* ══════════════════════════════════════════
+       MAIN CONTENT AREA
+    ══════════════════════════════════════════ */
+    .content {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 20px 20px;
+    }
 
-        .qr-card-img {
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            max-width: 100%;
-            height: auto;
-        }
+    /* Cream card — same visual language as the flashcard front face */
+    .welcome-card {
+      background: var(--cream);
+      border-radius: 20px;
+      box-shadow:
+        0 12px 44px rgba(0,0,0,.13),
+        0 2px 6px rgba(0,0,0,.05);
+      width: 100%;
+      max-width: 420px;
+      overflow: hidden;
+      position: relative;
+    }
 
-        .qr-label {
-            font-size: 1.1rem;
-            color: #666;
-            margin-top: 15px;
-            font-weight: 600;
-        }
+    /* Same 4-side diamond border frame as the flashcard */
+    .cframe {
+      position: absolute; inset: 0; z-index: 5;
+      pointer-events: none; border-radius: 20px; overflow: hidden;
+    }
+    .cf-h {
+      position: absolute; left: 0; right: 0; height: 30px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30'%3E%3Crect width='60' height='30' fill='%23CE1126'/%3E%3Cpolygon points='15,1 29,15 15,29 1,15' fill='%23FFFFFF'/%3E%3Cpolygon points='15,4 25,15 15,26 5,15' fill='%23CE1126'/%3E%3Cpolygon points='15,7 21,15 15,23 9,15' fill='%23FFFFFF'/%3E%3Cpolygon points='15,10 18,15 15,20 12,15' fill='%230C1C8C'/%3E%3Cpolygon points='15,13 17,15 15,17 13,15' fill='%233A7728'/%3E%3Cpolygon points='45,1 59,15 45,29 31,15' fill='%23FFFFFF'/%3E%3Cpolygon points='45,4 55,15 45,26 35,15' fill='%23CE1126'/%3E%3Cpolygon points='45,7 51,15 45,23 39,15' fill='%23FFFFFF'/%3E%3Cpolygon points='45,10 48,15 45,20 42,15' fill='%230C1C8C'/%3E%3Cpolygon points='45,13 47,15 45,17 43,15' fill='%233A7728'/%3E%3C/svg%3E");
+      background-size: 60px 30px;
+      background-repeat: repeat-x;
+    }
+    .cf-top    { top: 0; }
+    .cf-bottom { bottom: 0; transform: scaleY(-1); }
+    .cf-v {
+      position: absolute; top: 30px; bottom: 30px; width: 30px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='60'%3E%3Crect width='30' height='60' fill='%230C1C8C'/%3E%3Cpolygon points='15,1 29,15 15,29 1,15' fill='%23FFFFFF'/%3E%3Cpolygon points='15,4 25,15 15,26 5,15' fill='%230C1C8C'/%3E%3Cpolygon points='15,7 21,15 15,23 9,15' fill='%23FFFFFF'/%3E%3Cpolygon points='15,10 18,15 15,20 12,15' fill='%23CE1126'/%3E%3Cpolygon points='15,13 17,15 15,17 13,15' fill='%233A7728'/%3E%3Cpolygon points='15,31 29,45 15,59 1,45' fill='%23FFFFFF'/%3E%3Cpolygon points='15,34 25,45 15,56 5,45' fill='%230C1C8C'/%3E%3Cpolygon points='15,37 21,45 15,53 9,45' fill='%23FFFFFF'/%3E%3Cpolygon points='15,40 18,45 15,50 12,45' fill='%23CE1126'/%3E%3Cpolygon points='15,43 17,45 15,47 13,45' fill='%233A7728'/%3E%3C/svg%3E");
+      background-size: 30px 60px;
+      background-repeat: repeat-y;
+    }
+    .cf-left  { left: 0; }
+    .cf-right { right: 0; }
+    .cf-corner {
+      position: absolute; width: 30px; height: 30px;
+      background: var(--red);
+    }
+    .cf-corner::after {
+      content: ''; position: absolute; inset: 6px;
+      background: #fff;
+      clip-path: polygon(50% 0%,100% 50%,50% 100%,0% 50%);
+    }
+    .cf-tl { top:0;    left:0;  }
+    .cf-tr { top:0;    right:0; }
+    .cf-bl { bottom:0; left:0;  }
+    .cf-br { bottom:0; right:0; }
 
-        .cta-button {
-            background: linear-gradient(135deg, #90ee90 0%, #98fb98 100%);
-            border: none;
-            border-radius: 15px;
-            padding: 15px 40px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #1a1a1a;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(144, 238, 144, 0.4);
-        }
+    /* ══════════════════════════════════════════
+       CARD BODY
+    ══════════════════════════════════════════ */
+    .card-body {
+      padding: 38px 36px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0;
+    }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(144, 238, 144, 0.6);
-        }
+    .flag {
+      font-size: 3.2rem;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
 
-        .footer-link {
-            color: #888;
-            font-size: 0.9rem;
-            margin-top: 20px;
-        }
+    .welcome-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
 
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2rem;
-            }
+    .welcome-desc {
+      font-size: clamp(.88rem, 2.2vw, .98rem);
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 26px;
+    }
 
-            .description {
-                font-size: 1rem;
-            }
+    /* QR + CTA row — styled like the card's word-area */
+    .qr-row {
+      width: 100%;
+      background: rgba(0,0,0,.04);
+      border-radius: 14px;
+      padding: 18px 18px 18px 16px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      text-align: left;
+      margin-bottom: 22px;
+    }
 
-            .gambia-flag {
-                font-size: 3rem;
-            }
+    .qr-box {
+      flex-shrink: 0;
+      width: 100px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    }
+    .qr-box img { width: 100%; display: block; border-radius: 6px; }
 
-            .main-card {
-                padding: 30px 20px;
-            }
+    .qr-text { flex: 1; }
 
-            .qr-card {
-                padding: 20px 15px;
-            }
-        }
+    .qr-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
 
-        @media (max-width: 480px) {
-            .title {
-                font-size: 1.8rem;
-            }
+    .qr-sub {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
 
-            .description {
-                font-size: 0.95rem;
-            }
+    /* CTA button — same green as the flip button in learning.html */
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: .9rem;
+      font-weight: 800;
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(58,119,40,.28);
+      transition: all .22s ease;
+    }
+    .cta-btn:hover {
+      background: var(--green2);
+      transform: translateY(-2px);
+      box-shadow: 0 7px 20px rgba(58,119,40,.36);
+      color: #fff;
+      text-decoration: none;
+    }
 
-            .cta-button {
-                font-size: 1.1rem;
-                padding: 12px 30px;
-            }
-        }
-    </style>
+    /* footer links */
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .footer-links p, .footer-links a {
+      font-size: .7rem;
+      color: #aaa;
+    }
+    .footer-links a { color: var(--blue); text-decoration: underline; }
+    .footer-links a:hover { color: var(--red); }
+
+    /* ══ PAGE FOOTER ══ */
+    footer {
+      text-align: center;
+      padding: 10px 16px 16px;
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    footer p, footer a { font-size: .7rem; color: #aaa; }
+    footer a { color: var(--blue); text-decoration: underline; }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 400px) {
+      .card-body { padding: 30px 22px 28px; }
+      .qr-row { flex-direction: column; text-align: center; padding: 16px; gap: 14px; }
+      .qr-box { width: 90px; }
+      .qr-text { text-align: center; }
+    }
+    @media (min-width: 640px) {
+      .welcome-card { max-width: 440px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="landing-container">
-        <div class="card main-card">
-            <div class="card-body text-center">
-                <div class="gambia-flag mb-4">🇬🇲</div>
-                <h1 class="title">Welcome!</h1>
-                <p class="description">
-                    The Gambia is a country in West Africa with a population speaking many different languages.
-                    The most common language spoken across the nation is Mandinka. Join us in learning this beautiful language! Wear headphones to listen to the audio.
-                </p>
+<div class="page-wrap">
 
-                <div class="card qr-card">
-                    <div class="row align-items-center">
-                        <div class="col-6 col-md-4 order-2 order-md-1">
-                            <img src="assets/qr-code.jpg" alt="Mandinka Learning QR Code" class="qr-card-img">
-                        </div>
-                        <div class="col-6 col-md-8 text-center order-1 order-md-2">
-                            <h3 class="fw-bold mb-2">Scan to Learn</h3>
-                            <p class="qr-label">Download or share this page to access Mandinka flashcards anytime!</p>
-                            <div class="d-flex justify-content-center mt-3">
-                                <button class="cta-button" onclick="window.location.href='learning.html'">
-                                    Start Learning →
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <!-- Top diamond border — identical to learning.html -->
+  <div class="border-strip"></div>
 
-                <div class="text-center">
-                    <p class="text-muted small mb-0">
-                        Learning resource based on <a href="https://mylittlewordland.com/" target="_blank">My Little World Land</a>
-                    </p>
-                    <p class="footer-link">
-                        Learn more about our research in The Gambia at <a href="https://globalfnirs.org" target="_blank">globalfnirs.org</a>
-                    </p>
-                </div>
-            </div>
+  <!-- Green banner — identical to learning.html -->
+  <div class="banner">
+    <h1>🌍 Learn to speak Mandinka</h1>
+    <div class="banner-sub">Gambia &amp; Senegal &nbsp;·&nbsp; 7 phrases</div>
+  </div>
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="welcome-card">
+
+      <!-- Same 4-side card border frame as the flashcards -->
+      <div class="cframe">
+        <div class="cf-h cf-top"></div>
+        <div class="cf-h cf-bottom"></div>
+        <div class="cf-v cf-left"></div>
+        <div class="cf-v cf-right"></div>
+        <div class="cf-corner cf-tl"></div>
+        <div class="cf-corner cf-tr"></div>
+        <div class="cf-corner cf-bl"></div>
+        <div class="cf-corner cf-br"></div>
+      </div>
+
+      <div class="card-body">
+        <div class="flag">🇬🇲</div>
+
+        <div class="welcome-title">Welcome!</div>
+
+        <p class="welcome-desc">
+          The Gambia is a country in West Africa with a population speaking
+          many different languages. The most common language spoken across
+          the nation is Mandinka. Join us in learning this beautiful
+          language! Wear headphones to listen to the audio.
+        </p>
+
+        <div class="qr-row">
+          <div class="qr-box">
+            <img src="assets/qr-code.jpg" alt="QR code to open Mandinka flashcards" />
+          </div>
+          <div class="qr-text">
+            <div class="qr-title">Scan to Learn</div>
+            <div class="qr-sub">Download or share this page to access Mandinka flashcards anytime!</div>
+            <a class="cta-btn" href="learning.html">Start Learning &rarr;</a>
+          </div>
         </div>
-    </div>
 
-    <script>
-        // Smooth scroll and page transitions
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctaButton = document.querySelector('.cta-button');
-            ctaButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetUrl = 'learning.html';
-                window.location.href = targetUrl;
-            });
-        });
-    </script>
+        <div class="footer-links">
+          <p>Learning resource based on <a href="https://mylittlewordland.com/" target="_blank">My Little Word Land</a></p>
+          <p>Learn more about our research in The Gambia at <a href="https://globalfnirs.org" target="_blank">globalfnirs.org</a></p>
+        </div>
+      </div>
+
+    </div><!-- welcome-card -->
+  </div><!-- content -->
+
+  <!-- Bottom diamond border — identical to learning.html -->
+  <div style="flex:1; min-height:6px;"></div>
+  <div class="border-strip flip"></div>
+
+  <footer>
+    <p>Learn more about our research in The Gambia at <a href="https://globalfnirs.org" target="_blank">globalfnirs.org</a></p>
+  </footer>
+
+</div>
 </body>
 </html>
